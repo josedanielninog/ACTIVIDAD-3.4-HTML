@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog Personal Jose Daniel Niño – Analisis Y Desarrrollo De Software</title>
+  <!-- SEO básico -->
+  <meta name="description"
+    content="Portafolio personal de Jose Daniel: portafolio, blog, productos, videos y formulario de contacto." />
+  <meta name="keywords" content="portafolio, desarrolladora web, HTML, CSS, JavaScript, blog, contacto" />
+  <meta name="author" content="Jose Daniel" />
+  <meta name="robots" content="index, follow" />
+  <!-- Open Graph (opcional para SEO social) -->
+  <meta property="og:title" content="Portafolio de Jose Daniel" />
+  <meta property="og:description" content="Proyectos, artículos y recursos de desarrollo web." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_ES" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #121834;
+      --text: #e6e8ff;
+      --muted: #aab0ff;
+      --accent: #6c8cff;
+      --accent-2: #5eead4;
+      --border: #243;
+      --shadow: 0 6px 20px rgba(0, 0, 0, .35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      background: radial-gradient(1200px 800px at 10% 10%, #0f1632, var(--bg));
+      color: var(--text);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(9, 10, 24, .7);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .8rem 1rem;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      padding: .6rem .8rem;
+      border-radius: 12px;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background: rgba(255, 255, 255, .08);
+      outline: none;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+      display: grid;
+      gap: 2rem;
+    }
+
+    section,
+    article,
+    aside {
+      background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 18px;
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: .2rem 0 1rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    }
+
+    h2 {
+      font-size: clamp(1.3rem, 2vw, 1.6rem);
+      color: var(--muted);
+    }
+
+    p,
+    li,
+    label,
+    input,
+    textarea {
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .06);
+      padding: 1rem;
+      border-radius: 16px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: .25rem .6rem;
+      border-radius: 999px;
+      background: rgba(108, 140, 255, .15);
+      color: var(--accent-2);
+      border: 1px solid rgba(108, 140, 255, .35);
+      font-size: .8rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #081222;
+      padding: .7rem 1rem;
+      border-radius: 12px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(92, 153, 255, .3);
+    }
+
+    .btn:focus {
+      outline: 2px solid var(--accent-2);
+      outline-offset: 2px;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    figure img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    figcaption {
+      font-size: .9rem;
+      color: var(--muted);
+      margin-top: .4rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border-bottom: 1px dashed rgba(255, 255, 255, .15);
+      padding: .6rem .5rem;
+      text-align: left;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, .06);
+    }
+
+    tfoot td {
+      font-weight: 700;
+    }
+
+    form {
+      display: grid;
+      gap: .9rem;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .15);
+      color: var(--text);
+      padding: .7rem .8rem;
+      border-radius: 12px;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #cdd2ff88;
+    }
+
+    fieldset {
+      border: 1px dashed rgba(255, 255, 255, .2);
+      border-radius: 12px;
+      padding: .8rem;
+    }
+
+    legend {
+      padding: 0 .4rem;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 2rem 1rem;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav aria-label="Navegación principal">
+      <a class="brand" href="#inicio">JD • Portafolio</a>
+      <div>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#portafolio">Portafolio</a>
+        <a href="#blog">Blog</a>
+        <a href="#multimedia">Videos</a>
+
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <!-- 1 & 2. Estructura semántica -->
+    <section id="sobre-mi" aria-labelledby="tit-sobre-mi">
+      <h1 id="tit-sobre-mi">Hola, soy Jose Daniel <span class="pill">Aprendiz • ADSO</span></h1>
+      <p>Este es mi portafolio Personal en el que me especializo en crear experiencias web accesibles, rápidas y
+        bonitas. Aquí encontrarás mis
+        proyectos,y algunos de mis trabajos y formas de contacto</p>
+
+      <p><a class="btn" href="#contacto">Necesitas Mas información:</a></p>
+    </section>
+
+    <section id="proyectos" aria-labelledby="tit-proyectos">
+      <h2 id="tit-proyectos">Portafolio</h2>
+      <div class="grid grid-3" role="list">
+        <figure class="card" role="listitem">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop"
+            alt="Captura de un dashboard con gráficos" />
+          <figcaption>Creacion De una Pagina En HTML <HTML>
+
+            </HTML>
+          </figcaption>
+        </figure>
+
+        </figure>
+        <figure class="card" role="listitem">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+            alt="Código en un editor" />
+          <figcaption>Diseño Previo De Una Pagina.</figcaption>
+        </figure>
+      </div>
+      <p><a href="#blog" aria-label="Ir al blog para leer más detalles">Leer historias del proceso →</a></p>
+    </section>
+
+    <!-- 4. Blog con article, section y aside -->
+    <section id="blog" aria-labelledby="tit-blog">
+      <h2 id="tit-blog">Blog</h2>
+      <div class="grid grid-2">
+        <article class="card" aria-labelledby="post-aria-tit">
+          <header>
+            <h3 id="post-aria-tit">Herramientas Para Mejorar en HTML</h3>
+            <p class="pill">Ejemplos</p>
+          </header>
+          <figure>
+            <img src="https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?q=80&w=1200&auto=format&fit=crop"
+              alt="Persona usando un lector de pantalla" />
+            <figcaption>Las Mejores Heramientas.</figcaption>
+          </figure>
+          <section>
+            <p>Una De las mejores herramientas para mejorar en HTML son:Visual Studio Code, Editores Sencillos De Notas
+              , Etc.
+            </p>
+          </section>
+          <footer>
+            <p><a href="#contacto">¿Tienes dudas? Escríbeme</a></p>
+          </footer>
+        </article>
+
+        <aside class="card" aria-labelledby="tit-aside">
+          <h3 id="tit-aside">Atajos y recursos</h3>
+          <ul>
+            <li><a href="#sobre-mi">Ancla: Sobre mí</a></li>
+            <li><a href="#proyectos">Ancla: Portafolio</a></li>
+            <li><a href="#contacto">Ancla: Contacto</a></li>
+          </ul>
+          <figure>
+            <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1200&auto=format&fit=crop"
+              alt="Cuaderno con ideas y un café" />
+            <figcaption>Otra información</figcaption>
+          </figure>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 5. Lista de videos y audios -->
+    <section id="multimedia" aria-labelledby="tit-media">
+      <h2 id="tit-media">Videos & Contacto</h2>
+      <ul class="grid grid-2">
+        <li class="card">
+          <h3>Ejemplo Sobre Un Trabajo Anteriormente Completado (video)</h3>
+          <video controls preload="metadata" width="100%"
+            poster="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop">
+            <source src="demo-proyecto.mp4" type="video/mp4" />
+            <p>Tu navegador no soporta video HTML5.</p>
+          </video>
+        </li>
+        <li class="card">
+
+
+
+
+
+          <!-- 3. Formulario de contacto con validación HTML5 -->
+          <section id="contacto" aria-labelledby="tit-contacto">
+            <h2 id="tit-contacto">Contacto</h2>
+            <form action="#gracias" method="post" novalidate>
+              <fieldset>
+                <legend>Tu información</legend>
+                <label for="nombre">Jose Daniel Niño Galvis, Aprendiz Del Sena En el programa De formacion
+                  "ADSO", Numero De Contacto: 3138874003</label>
+                <input
